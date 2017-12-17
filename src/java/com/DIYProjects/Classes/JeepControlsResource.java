@@ -37,7 +37,7 @@ public class JeepControlsResource {
     }
 
     @GET
-    @Path("/engine/forwards")
+    @Path("/engine/forward")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getForwards() {
         try {
@@ -50,7 +50,7 @@ public class JeepControlsResource {
     }
     
     @GET
-    @Path("/engine/backwards")  
+    @Path("/engine/backward")  
     @Produces(MediaType.APPLICATION_JSON)
     public Response getBackwards() {
         try {
@@ -75,11 +75,11 @@ public class JeepControlsResource {
     }
     
     @GET
-    @Path("/engine/slowspeed")    
+    @Path("/engine/chosenspeed")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getSlowSpeed() {
         try {
-            String speed = jeep.slowSpeed();
+            String speed = jeep.ChosenSpeed();
             return Response.ok(speed).build();
         }
         catch (Exception exc) {
@@ -88,12 +88,12 @@ public class JeepControlsResource {
     }
     
     @GET
-    @Path("/engine/mediumspeed")    
+    @Path("/engine/left")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getMediumSpeed() {
+    public Response getLeft() {
         try {
-            String speed = jeep.mediumSpeed();
-            return Response.ok(speed).build();
+           // String speed = jeep.Left();
+            return Response.ok().build();
         }
         catch (Exception exc) {
             return Response.serverError().entity(exc.getMessage()).build();
@@ -101,12 +101,12 @@ public class JeepControlsResource {
     }
     
     @GET
-    @Path("/engine/fastspeed")    
+    @Path("/engine/right")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getFastSpeed() {
+    public Response getRight() {
         try {
-            String speed = jeep.fastSpeed();
-            return Response.ok(speed).build();
+            //String speed = jeep.ChosenSpeed();
+            return Response.ok().build();
         }
         catch (Exception exc) {
             return Response.serverError().entity(exc.getMessage()).build();
@@ -114,20 +114,7 @@ public class JeepControlsResource {
     }
     
     @GET
-    @Path("/engine/fullspeed")    
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getFullSpeed() {
-        try {
-            String speed = jeep.FullSpeed();
-            return Response.ok(speed).build();
-        }
-        catch (Exception exc) {
-            return Response.serverError().entity(exc.getMessage()).build();
-        }
-    }
-    
-    @GET
-    @Path("/engine/slowdown")   
+    @Path("/engine/speeddown")   
     @Produces(MediaType.APPLICATION_JSON)
     public Response getDecreasedSpeed() {
         try {

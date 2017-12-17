@@ -11,6 +11,7 @@ package com.DIYProjects.Classes;
  */
 public class Engine {
     private EngineListener listener = null;
+    public int musuGreitis = 512;
     
     public Engine()
     {
@@ -31,63 +32,36 @@ public class Engine {
     public int SpeedDown() throws Exception
     {
         if (listener != null) {
-            int speed = listener.onSpeedDown();
+            musuGreitis-=100;
+             int speed = listener.onChosenSpeed(musuGreitis);
             return speed;
         }
         else
             throw new Exception("EngineListener error");
     }
     
-    public int SpeedUp() throws Exception
+    public int ChosenSpeed() throws Exception
     {
         if (listener != null) {
-            int speed = listener.onSpeedUp();
+            int speed = listener.onChosenSpeed(musuGreitis);
+            
             return speed;
         }
         else
             throw new Exception("EngineListener error");
     }
     
-    public int SlowSpeed() throws Exception
+        public int SpeedUp() throws Exception
     {
         if (listener != null) {
-            int speed = listener.onSlowSpeed();
+            musuGreitis+= 100;
+            int speed = listener.onChosenSpeed(musuGreitis);
             return speed;
         }
         else
             throw new Exception("EngineListener error");
     }
-    
-    public int MediumSpeed() throws Exception
-    {
-        if (listener != null) {
-            int speed = listener.onMediumSpeed();
-            return speed;
-        }
-        else
-            throw new Exception("EngineListener error");
-    }
-    
-    public int FastSpeed() throws Exception
-    {
-        if (listener != null) {
-            int speed = listener.onFastSpeed();
-            return speed;
-        }
-        else
-            throw new Exception("EngineListener error");
-    }
-    
-    public int FullSpeed() throws Exception
-    {
-        if (listener != null) {
-            int speed = listener.onFullSpeed();
-            return speed;
-        }
-        else
-            throw new Exception("EngineListener error");
-    }
-    
+
     public void Backward()
     {
         if (listener != null)
@@ -98,6 +72,18 @@ public class Engine {
     {
         if (listener != null)
             listener.onForward();
+    }
+
+    public void Left()
+    {
+        if (listener != null)
+            listener.onLeft();
+    }
+
+    public void Right()
+    {
+        if (listener != null)
+            listener.onRight();
     }
 }
 

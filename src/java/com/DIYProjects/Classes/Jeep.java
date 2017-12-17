@@ -1,6 +1,8 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this templat.0
+.0
+e file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.DIYProjects.Classes;
@@ -54,76 +56,13 @@ public class Jeep {
         }
     }
     
-    public String slowSpeed() throws Exception
+    public String ChosenSpeed() throws Exception
     {
         if (engine != null)
         {
             try
             {
-                int speed = engine.SlowSpeed();
-                return "{ " + 
-                       "\"speed\" : " + speed +
-                       " }";
-            }
-            catch (Exception exc)
-            {
-                throw new Exception(exc.getMessage());
-            }
-        }
-        else {
-            throw new Exception("Engine initialization error");
-        }
-    }
-    
-    public String mediumSpeed() throws Exception
-    {
-        if (engine != null)
-        {
-            try
-            {
-                int speed = engine.MediumSpeed();
-                return "{ " + 
-                       "\"speed\" : " + speed +
-                       " }";
-            }
-            catch (Exception exc)
-            {
-                throw new Exception(exc.getMessage());
-            }
-        }
-        else {
-            throw new Exception("Engine initialization error");
-        }
-    }
-    
-    public String fastSpeed() throws Exception
-    {
-        if (engine != null)
-        {
-            try
-            {
-                int speed = engine.FastSpeed();
-                return "{ " + 
-                       "\"speed\" : " + speed +
-                       " }";
-            }
-            catch (Exception exc)
-            {
-                throw new Exception(exc.getMessage());
-            }
-        }
-        else {
-            throw new Exception("Engine initialization error");
-        }
-    }
-    
-    public String FullSpeed() throws Exception
-    {
-        if (engine != null)
-        {
-            try
-            {
-                int speed = engine.FullSpeed();
+                int speed = engine.ChosenSpeed();
                 return "{ " + 
                        "\"speed\" : " + speed +
                        " }";
